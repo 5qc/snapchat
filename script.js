@@ -1,7 +1,3 @@
-function auto_grow(element) {
-    element.style.height = "0px";
-    element.style.height = element.scrollHeight - 3.5 + "px";
-}
 function changeThis(element) {
     element.setAttribute("src", "https://i.picsum.photos/id/100/1000/1779.jpg?hmac=lnECG54JqUDI80sEpAGnPhme464J2pVNk0lC6Zbgx7Q")
 }
@@ -96,12 +92,19 @@ window.onload = function() {
                     document.getElementById("caption-item").remove()
                     document.getElementById("caption").remove()
                 } else {
-                    let newCaptionCount = Number(captionCount) - 1
-                    for (let i = 0; i < newCaptionCount; i++) {
-                        posArr.push(document.getElementById(`caption${i + 1}`).style.top)
-                        valuesArr.push(document.getElementById(`caption${i + 1}-input`).value)
-                        document.getElementById(`caption${i + 1}-item`).remove()
-                        document.getElementById(`content${i + 1}`).parentNode.remove()
+                    for (let i = 0; i < captionCount; i++) {
+                        if (document.getElementById(`caption${i + 1}`)) {
+                            posArr.push(document.getElementById(`caption${i + 1}`).style.top)
+                        } else {}
+                        if (document.getElementById(`caption${i + 1}-input`)) {
+                            valuesArr.push(document.getElementById(`caption${i + 1}-input`).value)
+                        }
+                        if (document.getElementById(`caption${i + 1}-item`)) {
+                            document.getElementById(`caption${i + 1}-item`).remove()
+                        }
+                        if (document.getElementById(`caption${i + 1}`)) {
+                            document.getElementById(`content${i + 1}`).parentNode.remove()
+                        }
                     }
                 }
                 for (let i = 0; i < captionCount; i++) {

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/assets/favicon.ico" />
+
+        <title>Snapchat Caption Maker</title>
+
+        <link rel="canonical" href="https://www.roc0ast3r.dev/snapchat" />
+        <meta name="description" content="Generate the greatest captions that look like they're from Snapchat, but not." />
+        <meta name="robots" content="index,follow" />
+        <meta property="og:title" content="Snapchat Caption Maker" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://www.roc0ast3r.dev/snapchat" />
+        <meta property="og:description" content="Generate the greatest captions that look like they're from Snapchat, but not." />
+        <meta property="og:image" content="/assets/snapchat-caption.png" />
+        <meta name="twitter:card" content="summary" />
+
+        <link rel="stylesheet" href="/style.css" />
+
+        <script src="/html2canvas.min.js" defer></script>
+        <script src="/script.js" defer></script>
+    </head>
+    <body>
+        <div class="left">
+            <button id="back-button">Back</button>
+            <div id="generated">
+                <img src="" id="image" onerror="changeThis(this)" />
+                <div id="caption" class="caption" oncontextmenu="return false">
+                    <div id="content"></div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="content">
+                <h1 class="header">Snapchat Caption Maker</h1>
+                <div class="settings">
+                    <div class="item" id="caption-item">
+                        <div class="label">Caption</div>
+                        <textarea id="caption-input" rows="2"></textarea>
+                    </div>
+                    <div class="item">
+                        <div class="label">Image (URL only)</div>
+                        <textarea id="image-input" rows="2"></textarea>
+                    </div>
+
+                    <button id="add-caption">Add Caption</button><br />
+                    <button id="view-image">View Image</button><br />
+                    <button id="download">Download</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="black-screen" style="display: none;"></div>
+        <div class="warning add-caption-warning" style="display: none;">
+            <h1>Uh-oh!</h1>
+            <p>
+                This <b>feature</b> is only available to PC users!
+            </p>
+            <button id="add-caption-warning-okay">Okay</button>
+        </div>
+    </body>
+</html>

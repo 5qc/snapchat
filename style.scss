@@ -1,0 +1,227 @@
+@use "colors" as color;
+@use "fonts" as font;
+@use "mixins" as sc;
+
+body {
+    font: {
+        family: font.$main;
+        weight: font.$weight
+    }
+}
+textarea {
+    resize: none;
+    text-align: center;
+    font: {
+        family: font.$main;
+        weight: font.$weight;
+        size: 17px;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+button {
+    $val: .25s;
+
+    margin-top: 10px;
+    background: darken(color.$yellow, 10%);
+    padding: 7.5px;
+    font: {
+        family: font.$main;
+        weight: bold;
+        size: 200%;
+    }
+    border: none {
+        radius: 20px;
+    }
+    transition: $val border-radius, $val background;
+
+    &:hover {
+        background: darken(color.$yellow, 7.5%);
+        cursor: pointer;
+        border: {
+            radius: 10px;
+        }
+        transition: $val border-radius, $val background;
+    }
+    &:active {
+        background: darken(color.$yellow, 12.5%);
+        transition: $val border-radius, 0s background;
+    }
+    &:focus {
+        outline: none;
+    }
+}
+.item {
+    width: fit-content;
+
+    .label {
+        text-align: center;
+        margin: {
+            bottom: 2.5px;
+        }
+        font: {
+            weight: bold;
+            size: 125%;
+        }
+    }
+}
+
+.black-screen {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.25);
+}
+.warning {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    text-align: center;
+    background: color.$yellow;
+    padding: 10px;
+    border-radius: 15px;
+
+    h1, h2, h3, h4, h5, h6, p {
+        margin: 0;
+    }
+}
+
+.left {
+    @include sc.box(left, center);
+    background: color.$white;
+
+    #back-button {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        z-index: 100;
+    }
+    #generated {
+        position: relative;
+        width: fit-content;
+        user-select: none;
+
+        img {
+            width: 500px;
+            position: relative;
+            z-index: 0;
+        }
+        .caption {
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            color: rgba(color.$white, 0.8);
+            letter-spacing: -.35px;
+            text: {
+                align: center;
+            }
+            font: {
+                family: font.$caption;
+                weight: 400;
+                size: 150%;
+            }
+            position: absolute;
+            top: 72.5%;
+            cursor: move;
+
+            div {
+                padding: 10px;
+            }
+        }
+    }
+}
+.right {
+    @include sc.box(right, normal);
+    background: color.$yellow;
+    color: color.$black;
+
+    .content {
+        display: block;
+        width: 100%;
+
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+        .header {
+            background: darken(color.$yellow, 10%);
+            padding: 10px;
+            text-align: center;
+        }
+
+        .settings {
+            text-align: center;
+
+            .item {
+                width: 50%;
+                margin: auto;
+
+                textarea {
+                    width: 100%;
+                }
+
+                &:first-child {
+                    margin-top: 5px;
+                }
+            }
+
+            .output {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+// Media Stuff
+.left {
+    #back-button {
+        display: none;
+    }
+}
+.right {
+    .settings {
+        #view-image, #view-image ~ br {
+            display: none;
+        }
+    }
+}
+.mobile-warning {
+    display: none;
+
+    text-align: center;
+    h1 {
+        border: {
+            bottom: 1px solid rgba(255, 0, 0, 0.5);
+        }
+    }
+    h1, h2, h3, h4, h5, h6, p {
+        margin: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .left {
+        width: 100%;
+
+        #back-button {
+            display: block;
+        }
+    }
+    .right {
+        width: 100%;
+        z-index: 100;
+
+        .settings {
+            #view-image, #view-image ~ br {
+                display: inline-block;
+            }
+        }
+    }
+}

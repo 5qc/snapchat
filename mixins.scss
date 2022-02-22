@@ -1,0 +1,14 @@
+@mixin box($dir, $alignment) {
+    position: absolute;
+    top: 0;
+    #{$dir}: 0;
+    width: 50%;
+    height: 100%;
+    overflow: auto;
+
+    @if $alignment == "center" {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } @else if $alignment == "normal" {}
+}

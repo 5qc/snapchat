@@ -1,0 +1,38 @@
+// Stuff
+$main: "Avenir Next", sans-serif;
+$caption: "Arial", sans-serif !important;
+$weight: 400;
+
+// Import Fonts
+@font-face {
+    font-family: "Avenir Next";
+    font-style: normal;
+    font-weight: normal;
+    src: url("/fonts/AvenirNextLTPro-Regular.otf") format("opentype");
+}
+@font-face {
+    font-family: "Avenir Next";
+    font-style: italic;
+    font-weight: normal;
+    src: url("/fonts/AvenirNextLTPro-It.otf") format("opentype");
+}
+@font-face {
+    font-family: "Avenir Next";
+    font-style: normal;
+    font-weight: bold;
+    src: url("/fonts/AvenirNextLTPro-Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Helvetica Neue";
+    font-style: normal;
+    font-weight: normal;
+    src: url("/fonts/helvetica-neue.otf") format("opentype"),
+        url("/fonts/helvetica-neue.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Helvetica Neue Light";
+    font-style: normal;
+    font-weight: normal;
+    src: url("/fonts/helvetica-neue-light.ttf") format("truetype");
+}
